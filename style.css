@@ -1,0 +1,145 @@
+:root {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 1rem;
+  background-color: #5553c4;
+}
+
+.wrapper {
+  max-width: 32rem;
+  margin: 0 auto;
+  padding: 1rem;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  gap: 0.5rem;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.25rem 1rem 0 rgba(0, 0, 0, 0.5);
+  height: calc(100dvh - 2rem);
+  overflow: hidden;
+}
+
+#accumulated-time {
+  font-size: 2rem;
+  padding: 0.75rem 1rem;
+  border-radius: 100vw;
+  justify-self: center;
+}
+
+.session-list {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  overflow: hidden;
+}
+
+#sessions {
+  display: grid;
+  grid-auto-rows: min-content;
+  background-color: #ebebeb;
+  border-radius: 4px;
+  list-style: none;
+  padding: 0.5rem;
+  margin: 0.25rem 0;
+  gap: 0.5rem;
+  overflow: auto;
+  border: 2px solid #b6b6b6;
+}
+
+.empty {
+  justify-self: center;
+  align-self: center;
+}
+
+#sessions .empty:not(:only-child) {
+  display: none;
+}
+
+.session {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  background-color: white;
+  padding: 0.5rem 0.75rem;
+  border-radius: 3px;
+  box-shadow: 0 0 0.5rem 0 rgba(0, 0, 0, 0.2);
+}
+
+.session-time {
+  padding: 0.25rem 0.5rem;
+  border-radius: 100vw;
+}
+
+.positive {
+  background-color: lightgreen;
+}
+
+.negative {
+  background-color: lightcoral;
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+}
+
+.button-group .hidden {
+  display: none;
+}
+
+button {
+  display: block;
+  flex-grow: 1;
+  padding: 0.75rem 1rem;
+  color: white;
+  border-radius: 4px;
+  border: none;
+  font-size: 1.25rem;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+#consume {
+  background-color: #cf2e23;
+}
+
+#consume:hover {
+  background-color: #e13d31;
+}
+
+#consume:active {
+  background-color: #c22418;
+}
+
+#top-up {
+  background-color: #15890e;
+}
+
+#top-up:hover {
+  background-color: #1e9818;
+}
+
+#top-up:active {
+  background-color: #0f7d09;
+}
+
+#stop {
+  background-color: #5553c4;
+}
+
+#stop:hover {
+  background-color: #605ed5;
+}
+
+#stop:active {
+  background-color: #4341b6;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="manifest" href="manifest.json">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activity Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrapper">
+    <div id="accumulated-time">+00:00:00</div>
+    <div class="session-list">
+      <span>Last 7 days:</span>
+      <ul id="sessions">
+        <li class="empty">No sessions.<br>Press one of the buttons below to start.</li>
+      </ul>
+    </div>
+    <div class="button-group">
+      <button id="top-up" type="button">Top-up</button>
+      <button id="consume" type="button">Consume</button>
+      <button id="stop" class="hidden" type="button">Stop</button>
+    </div>
+  </div>
+  <template id="session-tmpl">
+    <li class="session">
+      <span class="session-time"></span>
+      <span class="session-start"></span>
+    </li>
+  </template>
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker
+          .register('/service-worker.js')
+          .then(res => console.log('service worker registered'))
+          .catch(err => console.error('service worker not registered', err))
+      })
+    }
+  </script>
+  <script src="main.js"></script>
+</body>
+</html>
