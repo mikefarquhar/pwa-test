@@ -1,11 +1,11 @@
-const version = "TIME_CREDITS_V0.1"
+const version = "TIME_CREDITS_V0.1";
 
 const assets = [
-  "/",
-  "/index.html",
-  "/main.js",
-  "/style.css"
-]
+  "/pwa-test",
+  "/pwa-test/index.html",
+  "/pwa-test/main.js",
+  "/pwa-test/style.css",
+];
 
 self.addEventListener('install', (evt) => {
   evt.waitUntil(
