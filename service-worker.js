@@ -1,4 +1,3 @@
-const cacheName = "TIME_CREDITS_V0.2";
 
 const assets = [
   "/pwa-test/",
@@ -11,6 +10,7 @@ const assets = [
   "/pwa-test/icon-144.png",
   "/pwa-test/icon-192.png",
   "/pwa-test/icon-512.png",
+  "/pwa-test/icon-vector.svg",
 ];
 
 self.addEventListener('install', (evt) => {
