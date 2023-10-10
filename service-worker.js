@@ -1,4 +1,4 @@
-const cacheName = "TIME_CREDITS_V0.1";
+const cacheName = "TIME_CREDITS_V0.2";
 
 const assets = [
   "/pwa-test/",

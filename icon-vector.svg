@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg version="1.1" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+<rect width="512" height="512" fill="#1e996d" style="paint-order:markers stroke fill"/>
+<path d="m512 512v-275l-129-114-237 10.1 72.6 124-89.8 132 115 122z" fill="#1f8065" style="mix-blend-mode:normal"/>
+<g transform="translate(4.95 3.39)" fill="none" stroke="#fff" stroke-linecap="round">
+<path d="m142 130 218-1e-5 -109 189z" stroke-width="21.5" style="paint-order:markers stroke fill"/>
+<path transform="matrix(-.72 0 0 -.718 66.6 119)" d="m-408-358h303l-152 263z" stroke-width="30" style="paint-order:markers stroke fill"/>
+</g>
+</svg>

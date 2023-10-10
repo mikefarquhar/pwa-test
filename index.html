@@ -9,26 +9,28 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="wrapper">
-    <div id="accumulated-time">+00:00:00</div>
-    <div class="session-list">
-      <span>Last 7 days:</span>
-      <ul id="sessions">
-        <li class="empty">No sessions.<br>Press one of the buttons below to start.</li>
+    <div class="bar">
+      <div id="accumulated-time">+00:00:00</div>
+    </div>
+    <div class="sessions">
+      <ul id="sessions-list">
+        <li class="empty">No records found over the last 7 days.<br>Press one of the buttons below to start.</li>
       </ul>
     </div>
-    <div class="button-group">
-      <button id="top-up" type="button">Top-up</button>
-      <button id="consume" type="button">Consume</button>
-      <button id="stop" class="hidden" type="button">Stop</button>
+    <div class=" bar">
+      <div class="button-group">
+        <button id="top-up" type="button">Top-up</button>
+        <button id="consume" type="button">Consume</button>
+        <button id="stop" class="hidden" type="button">Stop</button>
+      </div>
     </div>
-  </div>
   <template id="session-tmpl">
     <li class="session">
       <span class="session-time"></span>
       <span class="session-start"></span>
     </li>
   </template>
+  <script src="main.js"></script>
   <script>
     if ("serviceWorker" in navigator) {
       window.addEventListener('load', () => {
@@ -39,6 +41,5 @@
       })
     }
   </script>
-  <script src="main.js"></script>
 </body>
 </html>

@@ -1,12 +1,17 @@
 {
-  "name": "Time Credits",
-  "short_name": "TimeCredits",
+  "name": "UrTime",
+  "short_name": "UrTime",
   "start_url": "index.html",
   "display": "standalone",
-  "background_color": "#5553c4",
-  "theme_color": "#3735b0",
-  "description": "Tracker to incentivise good behaviour",
+  "background_color": "#1e996d",
+  "theme_color": "#1f8065",
+  "description": "Track time spent on your positive and negative activities",
   "icons": [
+    {
+      "src": "icon-vector.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    },
     {
       "src": "icon-72.png",
       "sizes": "72x72",

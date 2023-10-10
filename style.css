@@ -1,5 +1,11 @@
 :root {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color-scheme: light dark;
+  --clr-bg-1: #dedede;
+  --clr-bg-2: #d3d3d3;
+  --clr-border: #bababa;
+  --clr-positive: #68d468;
+  --clr-negative: #f08080;
 }
 
 * {
@@ -7,22 +13,20 @@
 }
 
 body {
-  margin: 1rem;
-  background-color: #5553c4;
-}
-
-.wrapper {
-  max-width: 32rem;
-  margin: 0 auto;
-  padding: 1rem;
+  margin: 0;
   display: grid;
   grid-template-rows: auto minmax(0, 1fr) auto;
-  gap: 0.5rem;
-  background-color: white;
-  border-radius: 0.5rem;
-  box-shadow: 0 0.25rem 1rem 0 rgba(0, 0, 0, 0.5);
-  height: calc(100dvh - 2rem);
-  overflow: hidden;
+  height: 100dvh;
+  background-color: var(--clr-bg-2);
+}
+
+.bar {
+  display: flex;
+  justify-content: center;
+  background-color: var(--clr-bg-1);
+  padding: 0.5rem;
+  box-shadow: 0 0 0.5rem 0 rgb(0 0 0 / 0.2);
+  z-index: 1;
 }
 
 #accumulated-time {
@@ -32,44 +36,52 @@ body {
   justify-self: center;
 }
 
-.session-list {
+.sessions {
   display: grid;
-  grid-template-rows: auto 1fr;
+  grid-template-columns: auto minmax(0, 50rem) auto;
   overflow: hidden;
 }
 
-#sessions {
+#sessions-list {
+  grid-column: 2;
   display: grid;
   grid-auto-rows: min-content;
-  background-color: #ebebeb;
-  border-radius: 4px;
-  list-style: none;
-  padding: 0.5rem;
-  margin: 0.25rem 0;
-  gap: 0.5rem;
   overflow: auto;
-  border: 2px solid #b6b6b6;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .empty {
   justify-self: center;
-  align-self: center;
+  padding: 1rem;
 }
 
-#sessions .empty:not(:only-child) {
+.empty:not(:only-child) {
   display: none;
 }
 
 .session {
+  background-color: var(--clr-bg-2);
+  padding: 0.5rem 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  background-color: white;
-  padding: 0.5rem 0.75rem;
-  border-radius: 3px;
-  box-shadow: 0 0 0.5rem 0 rgba(0, 0, 0, 0.2);
+  position: relative;
+  background-clip: padding-box;
+}
+
+.session:not(:first-child)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  margin-top: -1px;
+  background-image: linear-gradient(90deg, var(--clr-bg-2) 10px, var(--clr-border) 20%, var(--clr-border) 80%, var(--clr-bg-2) calc(100% - 10px));
+}
+
+.session:not(:last-child) {
+  border-bottom: 1px solid transparent;
 }
 
 .session-time {
@@ -78,68 +90,89 @@ body {
 }
 
 .positive {
-  background-color: lightgreen;
+  background-color: var(--clr-positive);
 }
 
 .negative {
-  background-color: lightcoral;
+  background-color: var(--clr-negative);
 }
 
 .button-group {
   display: flex;
-  gap: 1rem;
-}
-
-.button-group .hidden {
-  display: none;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 30rem;
 }
 
 button {
-  display: block;
   flex-grow: 1;
   padding: 0.75rem 1rem;
-  color: white;
   border-radius: 4px;
   border: none;
   font-size: 1.25rem;
+  color: var(--clr-bg-1);
+  background-color: var(--clr-btn-bg);
 }
 
 button:hover {
   cursor: pointer;
+  background-color: var(--clr-btn-hover-bg);
 }
 
-#consume {
-  background-color: #cf2e23;
+button:active {
+  background-color: var(--clr-btn-active-bg);
 }
 
-#consume:hover {
-  background-color: #e13d31;
-}
-
-#consume:active {
-  background-color: #c22418;
+.hidden {
+  display: none;
 }
 
 #top-up {
-  background-color: #15890e;
+  --clr-btn-bg: #11710c;
+  --clr-btn-hover-bg: #188412;
+  --clr-btn-active-bg: #0c6407;
 }
 
-#top-up:hover {
-  background-color: #1e9818;
-}
-
-#top-up:active {
-  background-color: #0f7d09;
+#consume {
+  --clr-btn-bg: #b6271d;
+  --clr-btn-hover-bg: #c6352a;
+  --clr-btn-active-bg: #a51f16;
 }
 
 #stop {
-  background-color: #5553c4;
+  --clr-btn-bg: #5553c4;
+  --clr-btn-hover-bg: #605ed5;
+  --clr-btn-active-bg: #4341b6;
 }
 
-#stop:hover {
-  background-color: #605ed5;
-}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --clr-bg-1: #3e3e3e;
+    --clr-bg-2: #2d2d2d;
+    --clr-border: #494949;
+    --clr-positive: #288128;
+    --clr-negative: #9f3e28;
+  }
 
-#stop:active {
-  background-color: #4341b6;
+  button {
+    color: var(--clr-bg-2);
+  }
+
+  #top-up {
+    --clr-btn-bg: #83c87f;
+    --clr-btn-hover-bg: #94c892;
+    --clr-btn-active-bg: #6caf68;
+  }
+  
+  #consume {
+    --clr-btn-bg: #d37d76;
+    --clr-btn-hover-bg: #d88e87;
+    --clr-btn-active-bg: #c16d65;
+  }
+  
+  #stop {
+    --clr-btn-bg: #8c8bc7;
+    --clr-btn-hover-bg: #9b9acf;
+    --clr-btn-active-bg: #8686be;
+  }
 }

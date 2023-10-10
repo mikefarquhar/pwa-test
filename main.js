@@ -1,5 +1,5 @@
 const accumulatedTimeEl = document.getElementById('accumulated-time');
-const sessionsEl = document.getElementById('sessions');
+const sessionsEl = document.getElementById('sessions-list');
 const sessionRowTemplateEl = document.getElementById('session-tmpl');
 const consumeButtonEl = document.getElementById('consume');
 const topUpButtonEl = document.getElementById('top-up');
@@ -99,7 +99,7 @@ const timerButtonListener = (direction) => () => {
   accumulatedTimeEl.textContent = formatElapsedTime(timeCredit);
 
   sessionEl.querySelector('.session-start').textContent = formatTimestamp(sessionStart)
-  sessionsEl.append(sessionEl);
+  sessionsEl.prepend(sessionEl);
 
   timer.start();
 
@@ -169,7 +169,7 @@ topUpButtonEl.addEventListener('click', timerButtonListener(1));
 
     sessionStartEl.textContent = formatTimestamp(session.start);
 
-    sessionsEl.append(sessionEl);
+    sessionsEl.prepend(sessionEl);
   });
 
   localStorage.setItem('credits', JSON.stringify({
